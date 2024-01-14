@@ -135,7 +135,11 @@ fun game() {
 
                 TikTakTow(state = state.value, onTap ={
                         x, y ->
-                    viewModel.onEvent(UiEvent.OnTap(x,y,state.value.playerAtTurn))
+                    if (state.value.field[x][y] == null)
+                    {
+                        viewModel.onEvent(UiEvent.OnTap(x,y,state.value.playerAtTurn))
+                    }
+
                 } )
 
 
